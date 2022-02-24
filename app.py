@@ -5,7 +5,6 @@ import requests
 import database
 import models
 import werkzeug.utils
-import valoStore
 
 
 UPLOAD_FOLDER = '/Users/pptide/Programming/lineupServer/static/usercontent'
@@ -103,10 +102,6 @@ def addLineups(map, agent):
 def lineup(name):
   image_paths = [image.path for image in models.Image.query.filter(models.Image.lineup_name == name)]
   return flask.render_template("lineup/show.html", name=name, image_paths=image_paths)
-
-@app.route("/store")
-def store():
-  return valoStore.getStore()
 
 def getMap(uuid):
   r = requests.get('https://valorant-api.com/v1/maps/{}'.format(uuid))
