@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Add{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="POST" enctype="multipart/form-data">
+    <label for="name">Name</label>
+    <input name="name" id="name" required>
+    <label for="file">File</label>
+    <input name="file" id="file" type="file" required>
+    <input type="submit" value="Create">
+  </form>
+{% endblock %}
